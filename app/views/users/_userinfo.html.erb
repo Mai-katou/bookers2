@@ -3,7 +3,7 @@
   <p>name<%= user.name %></p>
   <p>introduction<%= user.introduction %></p>
   <% if user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集",edit_user_path(current_user.id) %></p>
+    <p><i class="fas fa-user-cog"></i><%= link_to edit_user_path(current_user.id), class:"btn" %></p>
   <% else %>
-    <p><%= link_to "プロフィール編集",user_path(current_user.id) %></p>
+    <p><i class="fas fa-user-cog"></i><%= link_to user_path(current_user.id), class:"btn" %></p>
   <% end %>

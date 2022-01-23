@@ -20,3 +20,44 @@
   box-sizing:border-box;
 }
 
+
+
+ body {
+  width:100%;
+  margin-left:33px;
+}
+
+.top-page{
+  width:50%;
+  margin:20px auto;
+}
+
+.nav-item{
+  color:white;
+  margin:10px;
+}
+
+.devise-page{
+  margin-top:10px;
+  margin-bottom:60px;
+  margin-left:60px;
+}
+
+.field, .actions{
+  margin-top:10px;
+}
+
+.success-messages{
+  color:green;
+}
+
+.error-message{
+  margin-top:10px;
+  margin-left:80px;
+  color:red;
+}
+
+footer{
+  width:100%;
+  text-align:center;
+}

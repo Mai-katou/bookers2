@@ -1,6 +1,4 @@
-<%= render 'users/userinfo', user: @user %>
-<%= render 'newbook',book: @new_book %>
-
+<div class="error-message">
 <% if @new_book.errors.any? %>
   <% if @new_book.errors.count ==1 %>
     <%= @new_book.errors.count %> error prohibited this obj from being saved:
@@ -13,17 +11,38 @@
     <% end %>
   </ul>
 <% end %>
-
-<h1>Books</h1>
-<% @books.each do |book| %>
-<div>
-    <%= link_to user_path(book.user.id) do %>
-    <p><%=image_tag book.user.get_profile_image("100x100") %></p>
-    <% end %>
-    <p><%= link_to book_path(book.id) do %>
-    Title<%=book.title %>
-    <% end %></p>
-    <p>Opinion<%=book.body %></p>
 </div>
-<% end %>
-<%= paginate @books %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'users/userinfo', user: @user %>
+      <%= render 'newbook',book: @new_book %>
+    </div>
+    <div class="col-lg-8">
+      <h1>Books</h1>
+      <table class= "table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+           <% @books.each do |book| %>
+          <tr>
+          <th scope="row"><%= link_to user_path(book.user.id) do %>
+          <%=image_tag book.user.get_profile_image("100x100") %>
+          <% end %></th>
+          <td><%= link_to book_path(book.id) do %>
+          <%=book.title %>
+          <% end %></td>
+          <td><%=book.body %></td>
+          <tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

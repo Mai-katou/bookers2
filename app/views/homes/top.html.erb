@@ -1,5 +1,12 @@
 <% if notice %>
-  <div><%= notice %></div>
+<div class="success-messages"><%= notice %></div>
 <% end %>
 
-<h1>Welcome to bookers!</h1>
+<div class="top-page" %>
+<h1>Welcome to <i class="fas fa-book"></i><strong>Bookers</strong>!!</h1>
+<p>In<i class="fas fa-book"></i><strong>Bookers</strong>,</p>
+<p>you can share and exchange your opinions , inpressions , and emotions</p>
+<p>about various books!</p>
+
+<%= link_to 'Log in',new_user_session_path, class:"btn btn-primary btn-lg btn-block" %>
+<%= link_to 'Sign up',new_user_registration_path, class:"btn btn-success btn-lg btn-block" %>

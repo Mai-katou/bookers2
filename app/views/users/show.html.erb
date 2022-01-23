@@ -1,20 +1,38 @@
 <% if notice %>
-    <div><%= notice %></div>
+    <div class="success-messages"><%= notice %></div>
 <% end %>
 
-<%= flash[:userupdated] %>
+<div class="success-messages"><%= flash[:userupdated] %></div>
 
-<%= render 'userinfo', user: @user %>
-<%= render 'books/newbook', book: @new_book %>
-
-<h1>Books</h1>
-<% @books.each do |book| %>
-<div>
-    <%= image_tag book.user.get_profile_image("100x100") %>
-    <%= link_to book_path(book.id) do %>
-    Title<%= book.title %>
-    <% end %>
-    <p>Opinion<%= book.body %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+        <%= render 'userinfo', user: @user %>
+        <%= render 'books/newbook', book: @new_book %>
+        </div>
+       <div class="col-lg-8">
+        <h1>Books</h1>
+        <table class= "table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @books.each do |book| %>
+        <tr>
+        <td><%= image_tag book.user.get_profile_image("100x100") %></td>
+        <td><%= link_to book_path(book.id) do %>
+            <%= book.title %>
+            <% end %></td>
+        <td>Opinion<%= book.body %></td>
+        </tr>
+        <% end %>
+        </tbody>
+        </table>
+        <%= paginate @books %>
+        </div>
+    </div>
 </div>
-<% end %>
-<%= paginate @books %>

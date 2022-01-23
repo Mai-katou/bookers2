@@ -1,4 +1,5 @@
 <h1>User info</h1>
+<div class="error-message">
 <% if @user.errors.any? %>
   <% if @user.errors.count == 1 %>
     <%=@user.errors.count %> error prohibited this obj from being saved:
@@ -11,6 +12,7 @@
     <% end %>
   </ul>
 <% end %>
+</div>
 
 <%= form_with model: @user,url:user_path(@user.id),method: :patch, local:true do |f| %>
 
