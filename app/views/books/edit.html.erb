@@ -1,6 +1,18 @@
 <h1>Editing Book</h1>
+<% if @book.errors.any? %>
+  <% if @book.errors.count == 1 %>
+    <%= @book.errors.count %> error prohibited this obj from being saved:
+  <% else %>
+    <%=@book.errors.count %> errors prohibited this obj from being saved:
+  <% end %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%=form_with model: @book,local:true do |f| %>
+<%=form_with model: @book,url: book_path(@book.id),method: :patch,local:true do |f| %>
 
 <%= f.label :Title %><br>
 <%= f.text_field :title %><br>
