@@ -21,15 +21,25 @@
 }
 
 
-
- body {
+ main {
   width:100%;
-  margin-left:33px;
+  padding:30px;
+}
+
+header a:visited{
+  color: white;
 }
 
 .top-page{
   width:50%;
   margin:20px auto;
+}
+
+.aboutpage{
+ font-size:40px;
+ width:100%;
+ text-align: center;
+ margin:20px auto;
 }
 
 .nav-item{
@@ -53,8 +63,10 @@
 
 .error-message{
   margin-top:10px;
-  margin-left:80px;
   color:red;
+}
+th:first-child{
+  width:150px;
 }
 
 footer{

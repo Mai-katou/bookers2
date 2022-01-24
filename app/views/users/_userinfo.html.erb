@@ -1,9 +1,19 @@
 <h1>User info</h1>
   <%= image_tag user.get_profile_image("100x100") %>
-  <p>name<%= user.name %></p>
-  <p>introduction<%= user.introduction %></p>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>name</th>
+          <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <th>introduction</th>
+          <td><%= user.introduction %></td>
+      </tr>
+    </tbody>
+  </table>
   <% if user.id == current_user.id %>
-    <p><i class="fas fa-user-cog"></i><%= link_to edit_user_path(current_user.id), class:"btn" %></p>
+    <p><%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %></p>
   <% else %>
-    <p><i class="fas fa-user-cog"></i><%= link_to user_path(current_user.id), class:"btn" %></p>
+    <p><%= link_to user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %></p>
   <% end %>
