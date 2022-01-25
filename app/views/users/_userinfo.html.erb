@@ -15,5 +15,5 @@
   <% if user.id == current_user.id %>
     <p><%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %></p>
   <% else %>
-    <p><%= link_to user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %></p>
+    <p><%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %></p>
   <% end %>
